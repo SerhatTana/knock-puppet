@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KNOCK — The Puppet's Door</title>
+    <style>
+        body { background: #1a1008; color: #d4b483; font-family: Georgia, serif; }
+        #container { max-width: 700px; margin: 40px auto; padding: 20px; }
+        h1 { text-align: center; font-style: italic; color: #c49a3c; }
+        #puppet-img { width: 100%; border-radius: 8px; margin: 20px 0; opacity: 0.9; }
+        #chat-box { background: #0d0805; border: 1px solid #4a3520; 
+                    border-radius: 8px; padding: 20px; height: 300px; overflow-y: auto; }
+        .puppet-msg { color: #d4b483; margin: 10px 0; font-style: italic; }
+        .user-msg { color: #8ab4d4; margin: 10px 0; text-align: right; }
+        #mood-badge { text-align: center; color: #7a6040; margin: 10px 0; font-size: 0.85em; }
+        input { width: 75%; background: #0d0805; color: #d4b483; 
+                border: 1px solid #4a3520; padding: 8px; border-radius: 4px; }
+        button { background: #4a3520; color: #d4b483; border: none; 
+                 padding: 8px 16px; border-radius: 4px; cursor: pointer; }
+        #loading { display: none; text-align: center; color: #7a6040; font-style: italic; margin-top: 10px;}
+    </style>
+</head>
+<body>
+<div id="container">
+    <h1>🎭 Knock on Heaven's Door</h1>
+    <p style="text-align:center; color:#7a6040;">"Mama, take this badge off of me..."</p>
+    
+    <!-- Fallback olarak doğrudan pollinations url'si atanabilir ilk açılışta boş durmaması için -->
+    <img id="puppet-img" src="https://image.pollinations.ai/prompt/a%20worn%20marionette%20puppet%20of%20a%20soldier,%20hanging%20loosely,%20Vietnam%20era%20uniform,%20dark%20background,%20watercolor%20style?width=1024&height=1024&nologo=true" alt="The Puppet" 
+         onerror="this.style.display='none'">
+    
+    <div id="mood-badge">mood: <span id="current-mood">weary</span></div>
+    <div id="chat-box"></div>
+    <div id="loading">The puppet is thinking...</div>
+    
+    <br>
+    <div style="display: flex; justify-content: space-between;">
+        <input type="text" id="user-input" placeholder="Speak to the puppet..." 
+               onkeypress="if(event.key==='Enter') sendMessage()">
+        <button onclick="sendMessage()">Send</button>
+        <button onclick="resetChat()" style="background:#2a1010;">Reset</button>
+    </div>
+</div>
+
+<script>
+async function sendMessage() {
+    const input = document.getElementById('user-input');
+    const message = input.value.trim();
+    if (!message) return;
+    
+    const chatBox = document.getElementById('chat-box');
+    const loading = document.getElementById('loading');
+    
+    chatBox.innerHTML += `<div class="user-msg">${message}</div>`;
+    input.value = '';
+    chatBox.scrollTop = chatBox.scrollHeight;
+    
+    loading.style.display = 'block';
+    
+    try {
+        const res = await fetch('/chat', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({message})
+        });
+        
+        const data = await res.json();
+        chatBox.innerHTML += `<div class="puppet-msg">🎭 ${data.response}</div>`;
+        document.getElementById('current-mood').textContent = data.mood;
+        
+        if (data.image) {
+            let img = document.getElementById('puppet-img');
+            img.src = '/static/' + data.image + '?t=' + Date.now();
+            img.style.display = 'block';
+        }
+    } catch(err) {
+        chatBox.innerHTML += `<div class="puppet-msg" style="color:red;">Error connecting to the spirit...</div>`;
+    } finally {
+        loading.style.display = 'none';
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+}
+
+async function resetChat() {
+    const chatBox = document.getElementById('chat-box');
+    const loading = document.getElementById('loading');
+    loading.style.display = 'block';
+    
+    try {
+        const res = await fetch('/reset', {method: 'POST'});
+        const data = await res.json();
+        chatBox.innerHTML = '';
+        document.getElementById('current-mood').textContent = 'weary';
+        if (data.image) {
+             let img = document.getElementById('puppet-img');
+             img.src = '/static/' + data.image + '?t=' + Date.now();
+             img.style.display = 'block';
+        }
+    } finally {
+        loading.style.display = 'none';
+    }
+}
+
+window.onload = resetChat;
+</script>
+</body>
+</html>
