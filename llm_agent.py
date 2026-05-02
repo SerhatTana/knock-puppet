@@ -29,7 +29,7 @@ def get_puppet_response(user_message: str, conversation_history: list, mood: str
     # Eğer eski bir kütüphane sürümü kullanılıyorsa fallback olarak system_instruction prompt içine eklenebilir.
     try:
         model = genai.GenerativeModel(
-            model_name="gemini-flash-latest",
+            model_name="gemini-2.5-flash",
             system_instruction=system_instruction
         )
     except Exception:
@@ -78,7 +78,7 @@ def detect_mood(user_message: str, current_mood: str) -> str:
     Reply with ONLY the mood word (weary, nostalgic, accepting, fading, angry, afraid, hallucinating, or regretful). Nothing else.
     """
     try:
-        model = genai.GenerativeModel("gemini-flash-latest")
+        model = genai.GenerativeModel("gemini-2.5-flash")
         response = model.generate_content(prompt)
         new_mood = response.text.strip().lower()
         valid_moods = ["weary", "nostalgic", "accepting", "fading", "angry", "afraid", "hallucinating", "regretful"]
