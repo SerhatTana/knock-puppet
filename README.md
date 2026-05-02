@@ -1,70 +1,69 @@
 # 🎭 KNOCK — The Puppet's Door
 
-KNOCK, 1973 Vietnam Savaşı'ndan dönen, ölmekte olan bir askerin kuklasıyla etkileşime girdiğiniz sinematik bir yapay zeka (AI) deneyimidir. Proje, Bob Dylan'ın *"Knockin' on Heaven's Door"* şarkısının "rozeti ve silahı bırakma" temasından esinlenerek; savaşın yorgunluğunu, vedayı ve özgürlüğü hissettirmeyi amaçlar.
+KNOCK, 1973 Vietnam Savaşı'ndan dönen, ölmekte olan bir askerin kuklasıyla etkileşime girdiğiniz **üst düzey (premium) bir yapay zeka deneyimidir.** Bob Dylan'ın *"Knockin' on Heaven's Door"* şarkısından ilham alan bu proje; savaşın yorgunluğunu, vedayı ve özgürlüğü "Department of Records" estetiğiyle sunar.
 
-Kullanıcı kuklayla konuştukça, kuklanın ruh hali dinamik olarak değişir, bu ruh haline uygun seslendirmeler yapılır ve görsel olarak tutarlı kukla resimleri üretilir.
+Sadece bir sohbet botu değil; ses, görüntü ve atmosferin birleştiği interaktif bir hikaye anlatımıdır.
 
 ---
 
 ## 🌟 Öne Çıkan Özellikler
 
-- **Çift Zihinli LLM Sistemi:** Arka planda çalışan ikinci bir "gizli" LLM zihni (Gemini 2.5 Flash), kullanıcının mesajlarını analiz ederek kuklanın **8 farklı ruh halinden** hangisine geçmesi gerektiğine karar verir.
-- **Yapay Zeka Destekli Görsel Üretim & Karakter Tutarlılığı:** Pollinations.ai API'si kullanılarak, her ruh hali için özel görseller üretilir. Sabit tohum (seed) ve detaylı karakter bazlı promptlar sayesinde kuklanın görsel kimliği tüm konuşma boyunca korunur.
-- **Profesyonel Seslendirme (TTS):** Google Cloud Text-to-Speech API kullanılarak, kuklanın ruh haline göre değişen, SSML ile zenginleştirilmiş ("yorgun asker" tonunda) sesli yanıtlar üretilir.
-- **Sinematik Tasarım:** "Department of Records" estetiğine sahip, Tailwind CSS ile modernleştirilmiş, daktilo efektleri ve film greni içeren premium bir arayüz.
-- **Atmosferik Arka Plan Müziği:** Bob Dylan'ın klasiği eşliğinde, kullanıcıyı 1973'ün melankolik havasına sokan entegre ses sistemi.
+- **Gelişmiş LLM Mimarisi (Gemini 2.5 Flash):** Proje, hem ana sohbet hem de arka plandaki "Dinamik Ruh Hali Analizi" için en güncel Gemini modelini kullanır. Kukla, mesajlarınızı analiz ederek **8 farklı duygu durumuna** geçiş yapar.
+- **Karakter ve Görsel Tutarlılık:** Stable Diffusion (Pollinations.ai) entegrasyonu; sabit tohum (seed) ve detaylı karakter promptları kullanılarak kuklanın görsel kimliğinin her mesajda korunmasını sağlar.
+- **Profesyonel Ses Sentezi (Google Cloud TTS):** Kukla artık sadece yazmıyor, konuşuyor. Ruh haline göre tonlaması değişen, SSML ile zenginleştirilmiş gerçekçi bir "yorgun asker" sesiyle yanıt verir.
+- **Sinematik Arayüz:** Tailwind CSS ile tasarlanmış, 1970'lerin askeri kayıt ofisi havasında; film greni, daktilo efektleri ve "Department of Records" temalı premium UI.
+- **Atmosferik Ses Deneyimi:** Arka planda çalan Bob Dylan klasiği ve ses seviyesini kontrol edebileceğiniz interaktif slider ile tam bir atmosfer sunar.
+- **Bypass Autoplay Policy:** Tarayıcıların ses engelleme politikasını aşan özel "Enter the Archive" giriş ekranı.
 
 ---
 
 ## 🎭 8 Farklı Ruh Hali (Moods)
 
-Kuklanın ruh hali, sizin onunla nasıl konuştuğunuza göre şekillenir:
+Kuklanın dünyası sizin sözlerinizle şekillenir:
 
-1. **Weary (Yorgun):** Normal diyaloglarda gevşek iplerle duran yorgun kukla.
-2. **Nostalgic (Nostaljik):** Geçmişten bahsedildiğinde solgun fotoğraflara bakan kukla.
-3. **Accepting (Kabullenen):** Onu teselli ettiğinizde huzur bulan, ipleri kopmaya başlayan kukla.
-4. **Fading (Solup Giden):** Veda ettiğinizde ışığa karışan kukla.
-5. **Angry (Öfkeli):** Saldırgan konuşulduğunda beliren kırmızı ışıklı, öfkeli kukla.
-6. **Afraid (Korkmuş):** Ölümden veya karanlıktan bahsettiğinizde gölgelerde titreyen kukla.
-7. **Regretful (Pişman):** Kayıplardan bahsedince çamur içinde diz çökmüş kukla.
-8. **Hallucinating (Halüsinasyon):** Gerçeküstü sohbetlerde psychedelic renklerde eriyen sürreal kukla.
-
----
-
-## 🛠️ Kullanılan Teknolojiler
-
-- **Backend:** Python, Flask
-- **Text AI (LLM):** Google Generative AI (Gemini 2.5 Flash)
-- **Image AI:** Pollinations.ai (Stable Diffusion)
-- **Voice AI:** Google Cloud Text-to-Speech
-- **Frontend:** HTML5, Tailwind CSS, JavaScript (Vanilla)
+1. **Weary (Yorgun):** Varsayılan hali; ipleri gevşek, başı eğik.
+2. **Nostalgic (Nostaljik):** Geçmişten veya evden bahsettiğinizde solgun fotoğraflara odaklanır.
+3. **Accepting (Kabullenen):** Huzur bulduğunda iplerinin kopmaya başladığı an.
+4. **Fading (Solup Giden):** Vedalarda ışığa ve toza karışan silüet.
+5. **Angry (Öfkeli):** Çatışma ve öfke anlarında beliren sert, kırmızı ışıklı atmosfer.
+6. **Afraid (Korkmuş):** Karanlık ve ölüm karşısında gölgelere sığınan kukla.
+7. **Regretful (Pişman):** Yağmur altında, çamurda diz çökmüş hüzünlü hali.
+8. **Hallucinating (Halüsinasyon):** Gerçekliğin kaybolduğu, psychedelic renklerin hakim olduğu sürreal anlar.
 
 ---
 
-## 🚀 Nasıl Çalıştırılır?
+## 🛠️ Teknolojik Altyapı
 
-### 1. Gereksinimleri Yükleyin
+- **Motor:** Python / Flask
+- **Zeka (LLM):** Google Gemini 2.5 Flash
+- **Görsel (Image Gen):** Stable Diffusion (via Pollinations API)
+- **Ses (Voice):** Google Cloud Text-to-Speech
+- **Stil:** HTML5 / Tailwind CSS / Vanilla JS
+
+---
+
+## 🚀 Kurulum ve Çalıştırma
+
+### 1. Ortamı Hazırlayın
 ```bash
 pip install -r requirements.txt
 ```
 
-### 2. API Anahtarlarını Ayarlayın
-`.env` dosyası oluşturun ve aşağıdaki anahtarları ekleyin:
+### 2. API Anahtarlarını Tanımlayın
+`.env` dosyanıza şu anahtarları ekleyin:
 ```env
-GEMINI_API_KEY=sizin_gemini_api_anahtariniz
-GOOGLE_API_KEY=sizin_google_cloud_tts_api_anahtariniz
+GEMINI_API_KEY=sizin_gemini_anahtariniz
+GOOGLE_API_KEY=sizin_google_tts_anahtariniz
 ```
 
 ### 3. Arka Plan Müziği
-Proje klasörüne dilediğiniz bir MP3 dosyasını ekleyin (Örn: Bob Dylan).
+`static/audio/background.mp3` yoluna dilediğiniz atmosferik müziği yerleştirin.
 
-### 4. Uygulamayı Başlatın
+### 4. Başlatın
 ```bash
 python app.py
 ```
-
-### 5. Tarayıcıda Açın
-`http://localhost:5000` adresine gidin ve "Enter the Archive" butonuna tıklayarak deneyimi başlatın.
+`http://localhost:5000` adresine gidin ve "Enter the Archive" diyerek dosyaları açın.
 
 ---
 
