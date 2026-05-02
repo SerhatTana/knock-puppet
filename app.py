@@ -18,32 +18,20 @@ def chat():
     global conversation_history, current_puppet_mood
     
     user_message = request.json.get("message", "")
-    
-    # Mevcut ruh halini kaydet
     prev_mood = current_puppet_mood
-    
-    # Yeni ruh halini kullanıcının mesajına göre LLM ile belirle
     current_puppet_mood = detect_mood(user_message, current_puppet_mood)
     
-    # LLM yanıtı al
-    print(f"Getting LLM response for mood: {current_puppet_mood}...")
     puppet_response = get_puppet_response(user_message, conversation_history, current_puppet_mood)
-    print(f"LLM Response received: {puppet_response[:50]}...")
     
-    # Konuşma geçmişini güncelle
     conversation_history.append({"role": "user", "content": user_message})
     conversation_history.append({"role": "assistant", "content": puppet_response})
     
-    # Görsel üret (sadece mood değiştiğinde)
     image_path = None
     if current_puppet_mood != prev_mood:
-        print(f"Generating image for mood: {current_puppet_mood}...")
         image_path = generate_puppet_image(current_puppet_mood)
-        print(f"Image generation finished: {image_path}")
         if image_path:
-            image_path = image_path.replace("static/", "")  # URL için düzelt
+            image_path = image_path.replace("static/", "")
     
-    # Ses üret (Google Cloud TTS)
     audio_file = f"speech_{int(time.time())}.mp3"
     audio_path = generate_speech(puppet_response, audio_file)
     
@@ -60,7 +48,6 @@ def reset():
     conversation_history = []
     current_puppet_mood = "weary"
     
-    # Reset durumunda ilk resmi (weary) oluştur
     image_path = generate_puppet_image("weary")
     if image_path:
         image_path = image_path.replace("static/", "")

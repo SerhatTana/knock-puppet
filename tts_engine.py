@@ -6,19 +6,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Google API Key'i .env'den alıyoruz
-# Eğer GEMINI_API_KEY ile aynıysa onu kullanabiliriz, 
-# değilse GOOGLE_API_KEY adında yeni bir değişken ekleyebilirsiniz.
 API_KEY = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
 
 def generate_speech(text, filename="response.mp3"):
     if not API_KEY:
-        print("Error: GOOGLE_API_KEY not found in .env")
         return None
 
     url = f"https://texttospeech.googleapis.com/v1/text:synthesize?key={API_KEY}"
 
-    # SSML (Speech Synthesis Markup Language) kullanarak sesi "yorgun" hale getiriyoruz
     ssml_text = f"""
     <speak>
       <prosody rate="85%" pitch="-2st">
@@ -52,8 +47,5 @@ def generate_speech(text, filename="response.mp3"):
             out.write(audio_content)
             
         return filename
-    except Exception as e:
-        print(f"TTS REST Error: {e}")
-        if hasattr(e, 'response') and e.response is not None:
-            print(f"Details: {e.response.text}")
+    except Exception:
         return None

@@ -25,28 +25,23 @@ Your current mood is: [MOOD] (weary / nostalgic / accepting / fading / angry / a
 def get_puppet_response(user_message: str, conversation_history: list, mood: str = "weary") -> str:
     system_instruction = SYSTEM_PROMPT.replace("[MOOD]", mood)
     
-    # Gemini modelini system_instruction ile başlatıyoruz
-    # Eğer eski bir kütüphane sürümü kullanılıyorsa fallback olarak system_instruction prompt içine eklenebilir.
     try:
         model = genai.GenerativeModel(
             model_name="gemini-2.5-flash",
             system_instruction=system_instruction
         )
     except Exception:
-        # Fallback for older SDK versions
         model = genai.GenerativeModel(model_name="gemini-pro-latest")
 
     history = []
     for msg in conversation_history:
-        # Gemini expects 'user' or 'model' roles
         role = 'user' if msg['role'] == 'user' else 'model'
         history.append({'role': role, 'parts': [msg['content']]})
         
     chat = model.start_chat(history=history)
     
-    # Eğer system_instruction desteklenmiyorsa (gemini-pro), prompt içine gömüyoruz
     if getattr(model, '_system_instruction', None) is None:
-        prompt = f"[SİSTEM NOTU: {system_instruction}]\n\nKullanıcı: {user_message}"
+        prompt = f"[SYSTEM NOTE: {system_instruction}]\n\nUser: {user_message}"
     else:
         prompt = user_message
         
@@ -54,7 +49,6 @@ def get_puppet_response(user_message: str, conversation_history: list, mood: str
     return response.text
 
 def detect_mood(user_message: str, current_mood: str) -> str:
-    """Kullanıcının mesajına göre ruh halini yapay zeka ile belirle"""
     if not user_message:
         return current_mood
         
