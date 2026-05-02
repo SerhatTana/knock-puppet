@@ -21,14 +21,14 @@ Sadece bir sohbet botu değil; ses, görüntü ve atmosferin birleştiği intera
 
 Kuklanın dünyası sizin sözlerinizle şekillenir:
 
-1. **Weary (Yorgun):** Varsayılan hali; ipleri gevşek, başı eğik.
-2. **Nostalgic (Nostaljik):** Geçmişten veya evden bahsettiğinizde solgun fotoğraflara odaklanır.
-3. **Accepting (Kabullenen):** Huzur bulduğunda iplerinin kopmaya başladığı an.
-4. **Fading (Solup Giden):** Vedalarda ışığa ve toza karışan silüet.
-5. **Angry (Öfkeli):** Çatışma ve öfke anlarında beliren sert, kırmızı ışıklı atmosfer.
-6. **Afraid (Korkmuş):** Karanlık ve ölüm karşısında gölgelere sığınan kukla.
-7. **Regretful (Pişman):** Yağmur altında, çamurda diz çökmüş hüzünlü hali.
-8. **Hallucinating (Halüsinasyon):** Gerçekliğin kaybolduğu, psychedelic renklerin hakim olduğu sürreal anlar.
+1. **Weary (Yorgun):** Normal diyaloglarda beliren varsayılan hali; ipleri gevşek, başı eğik.
+2. **Nostalgic (Nostaljik):** Geçmişten, evden veya eski anılardan bahsettiğinizde solgun fotoğraflara odaklanır.
+3. **Accepting (Kabullenen):** Onu teselli ettiğinizde ve huzur verdiğinizde iplerinin kopmaya başladığı an.
+4. **Fading (Solup Giden):** Veda ettiğinizde ve gitmesine izin verdiğinizde ışığa karışan silüet.
+5. **Angry (Öfkeli):** Komutanlara kızdığınızda veya saldırgan konuştuğunuzda beliren sert, kırmızı ışıklı atmosfer.
+6. **Afraid (Korkmuş):** Ölümden, karanlıktan veya bilinmezlikten bahsettiğinizde gölgelere sığınan kukla.
+7. **Regretful (Pişman):** Kayıplardan ve pişmanlıklardan bahsedince yağmur altında çamurda diz çökmüş hali.
+8. **Hallucinating (Halüsinasyon):** Gerçekliğin kaybolduğu, sürreal ve psychedelic sohbetlerde eriyen anlar.
 
 ---
 
