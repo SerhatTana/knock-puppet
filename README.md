@@ -1,6 +1,6 @@
 Project Members : 
-Serhat Buğra Tana - 20220808001
-Elif Buse Çınar - 20220808048
+Serhat Buğra Tana - 20220808001 /
+Elif Buse Çınar - 20220808048  /
 Musa Talat Demir - 20220808022
 
 # 🎭 KNOCK — The Puppet's Door
